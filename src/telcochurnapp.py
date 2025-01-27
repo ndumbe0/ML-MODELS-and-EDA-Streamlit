@@ -205,7 +205,7 @@ def main():
             """
             <footer style='text-align: center; margin-top: 50px;'>
                 Share on social media with the hashtag <b>#telcochurn</b>!<br>
-                More info and ⭐ at <a href='#'>GitHub Repository</a>.
+                More info and ⭐ at <a href='#'>https://github.com/ndumbe0/Embedding-ML-Models-in-GUIs---Streamlit?tab=readme-ov-file#telco-churn-prediction-app</a>.
             </footer>
             """,
             unsafe_allow_html=True,
