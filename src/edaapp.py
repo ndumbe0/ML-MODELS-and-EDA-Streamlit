@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -174,4 +173,3 @@ elif page == "Analytics Dashboard":
 # Footer
 st.markdown("---")
 st.markdown("<h5 style='text-align: center; color: gray;'>© 2025 Telco Churn Analysis Dashboard</h5>", unsafe_allow_html=True)
-
