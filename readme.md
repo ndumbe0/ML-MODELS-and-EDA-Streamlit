@@ -1,3 +1,86 @@
+# Telco Churn Analysis Dashboard
+
+## Introduction
+
+The Telco Churn Analysis Dashboard is a powerful web application designed to provide in-depth exploratory data analysis (EDA) and analytics for telecommunications customer churn data. Built with Streamlit, this interactive dashboard allows users to upload their own datasets and gain valuable insights through visualizations and statistical analysis.
+
+## Technologies Used
+
+- **Programming Language**: Python
+- **Libraries**:
+  - Data Manipulation: pandas
+  - Data Visualization: plotly
+  - Web Application Framework: Streamlit
+- **Data Formats Supported**: CSV and Excel files (.csv, .xlsx, .xls)
+
+## Launch
+
+To run the application locally:
+
+1. Clone the repository from GitHub.
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the Streamlit app with the command:
+   ```bash
+   streamlit run edaapp.py
+   ```
+4. Upload your dataset or use the default dataset provided in the app.
+
+## Features
+
+### Data Loading and Preprocessing
+- Supports CSV and Excel file formats
+- Handles missing values in the 'TotalCharges' column
+- Converts 'TotalCharges' to numeric type
+
+### Interactive Dashboard
+- Navigation sidebar for easy switching between EDA and Analytics dashboards
+- File uploader for custom dataset analysis
+
+### Visualizations
+- The app likely includes various charts and graphs to visualize churn-related data (specific details not provided in the code snippet)
+
+## Scope of Functions
+
+### Key Features:
+- **Dataset Loading**: Supports CSV and Excel file formats
+- **Data Preprocessing**: Handles missing values and converts data types
+- **Interactive Interface**: Built with Streamlit for seamless user interaction
+- **Multi-page Layout**: Separate dashboards for EDA and Analytics
+
+### Limitations:
+- The app requires datasets with specific columns, including 'TotalCharges'
+- Full functionality may depend on the structure of the uploaded dataset
+
+## Future Enhancements
+
+- Implement additional data visualization techniques
+- Add machine learning models for churn prediction
+- Expand the analytics capabilities with more advanced statistical analyses
+
+## Sources
+
+This project utilizes open-source libraries and frameworks:
+- Streamlit for web application development
+- Pandas for data manipulation
+- Plotly for interactive visualizations
+
+## Contributing
+
+Contributions to improve the Telco Churn Analysis Dashboard are welcome. Please feel free to submit pull requests or open issues for any bugs or feature requests.
+
+## License
+
+[Include license information here]
+
+
+
+
+
+
+
 # Telco Churn Prediction App
 
 ## 1️⃣ **Project Title**  
@@ -68,5 +151,3 @@ The project is based on publicly available datasets and tools, including:
 - Cleaned Telco customer data (`CleanedTelco.csv`).  
 - Libraries like `scikit-learn` for machine learning algorithms and `Streamlit` for app development.
 
-Citations:
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/27862520/7adaf27b-e72b-4c5f-9538-c1e2d931daa1/telcochurnapp.py
