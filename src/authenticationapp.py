@@ -10,7 +10,7 @@ st.markdown("""
     }
 
     .stApp {
-        background: linear-gradient(135deg, #f6f9fc 0%, #edf2f7 100%);
+        background: linear-gradient(135deg, #e0e6ed 0%, #8b9dc9 50%, #9b8da8 100%);
     }
     
     .login-container {
@@ -24,10 +24,10 @@ st.markdown("""
     
     .login-header {
         text-align: center;
-        margin-bottom: 1.5rem;
-        color: #2d3748;
-        font-size: 22px;
-        font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #000000;
+    font-size: 22px;
+    font-weight: 600;
     }
     
     .login-icon {
