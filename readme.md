@@ -5,7 +5,8 @@
 https://ndumbe0-embedding-ml-models-in-guis---streamli-srcedaapp-bpzjl8.streamlit.app/
 
 ## Introduction
-![alt text](<eda 1.png>)
+![eda 1](https://github.com/user-attachments/assets/4dafda63-22b6-4d15-8c1b-dbd3b1f45697)
+
 The Telco Churn Analysis Dashboard is a powerful web application designed to provide in-depth exploratory data analysis (EDA) and analytics for telecommunications customer churn data. Built with Streamlit, this interactive dashboard allows users to upload their own datasets and gain valuable insights through visualizations and statistical analysis.
 
 
@@ -35,7 +36,7 @@ To run the application locally:
 4. Upload your dataset or use the default dataset provided in the app.
 
 ## Features
-![alt text](<eda 1-1.png>) ![alt text](<eda 2.png>)
+
 ### Data Loading and Preprocessing
 - Supports CSV and Excel file formats
 - Handles missing values in the 'TotalCharges' column
@@ -49,6 +50,7 @@ To run the application locally:
 - The app likely includes various charts and graphs to visualize churn-related data (specific details not provided in the code snippet)
 
 ## Scope of Functions
+![eda 2](https://github.com/user-attachments/assets/6510f5bf-9b24-48c6-9b7b-e9637ca1cadd)
 
 ### Key Features:
 - **Dataset Loading**: Supports CSV and Excel file formats
@@ -164,7 +166,8 @@ https://appenticationapppy-ck6cqcbhvquztvps6ryzuj.streamlit.app/
 
 The `authenticationapp.py` file contains a basic authentication system implemented using Streamlit, a Python library for creating web applications. Here's an overview of the file's contents and functionality:
 
-![alt text](<log in.png>)
+![log in](https://github.com/user-attachments/assets/c4b13d43-07b6-4948-b8db-8c1d1946b187)
+
 
 ## Imports
 
@@ -221,6 +224,8 @@ While the provided code snippet is incomplete, a typical authentication system m
 The current code snippet is minimal and lacks full authentication functionality. It appears to be a foundation for a more comprehensive login system.
 
 To create a complete authentication system, additional features such as password hashing, user database integration, and secure session management would need to be implemented.
+
+https://dev.to/ndumbe0/ml-and-eda-app-deployment-5ddi
 
 Owner (ndumbemoses@gmail.com) : [Moses N Ndumbe]
 
