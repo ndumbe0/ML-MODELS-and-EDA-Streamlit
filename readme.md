@@ -1,232 +1,254 @@
-### 1
+# Telco Churn Analysis & Prediction Platform
 
-# Telco Churn Analysis Dashboard
+![Streamlit](https://img.shields.io/badge/Streamlit-1.58-FF4B4B?logo=streamlit)
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.9-FA9F3E?logo=scikitlearn)
+![Plotly](https://img.shields.io/badge/Plotly-6.8-3F4F75?logo=plotly)
 
-https://ndumbe0-embedding-ml-models-in-guis---streamli-srcedaapp-bpzjl8.streamlit.app/
+![Telco Churn Dashboard](https://github.com/user-attachments/assets/4dafda63-22b6-4d15-8c1b-dbd3b1f45697)
 
-## Introduction
-![eda 1](https://github.com/user-attachments/assets/4dafda63-22b6-4d15-8c1b-dbd3b1f45697)
+An end-to-end machine learning platform for telecommunications customer churn analysis and prediction. Built with Streamlit, this application combines interactive exploratory data analysis (EDA), automated ML model training with hyperparameter tuning, and an AI-powered assistant for insights.
 
-The Telco Churn Analysis Dashboard is a powerful web application designed to provide in-depth exploratory data analysis (EDA) and analytics for telecommunications customer churn data. Built with Streamlit, this interactive dashboard allows users to upload their own datasets and gain valuable insights through visualizations and statistical analysis.
+## Table of Contents
 
+- [Overview](#overview)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Quick Start](#quick-start)
+- [Docker Deployment](#docker-deployment)
+- [ML Models](#ml-models)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
 
+## Overview
 
-## Technologies Used
+Customer churn is one of the most critical metrics for subscription-based businesses. This platform enables data scientists and business analysts to:
 
-- **Programming Language**: Python
-- **Libraries**:
-  - Data Manipulation: pandas
-  - Data Visualization: plotly
-  - Web Application Framework: Streamlit
-- **Data Formats Supported**: CSV and Excel files (.csv, .xlsx, .xls)
+1. **Explore** customer data with interactive visualizations
+2. **Train and compare** multiple ML models with cross-validation
+3. **Predict** individual customer churn probability
+4. **Get AI-powered insights** via integrated Gemini AI assistant
 
-## Launch
+## Live Demo
 
-To run the application locally:
+![Dashboard Preview](https://github.com/user-attachments/assets/6510f5bf-9b24-48c6-9b7b-e9637ca1cadd)
 
-1. Clone the repository from GitHub.
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the Streamlit app with the command:
-   ```bash
-   streamlit run edaapp.py
-   ```
-4. Upload your dataset or use the default dataset provided in the app.
+**Live App:** [Telco Churn Platform](https://ndumbe0-embedding-ml-models-in-guis---streamli-srcedaapp-bpzjl8.streamlit.app/)
 
 ## Features
 
-### Data Loading and Preprocessing
-- Supports CSV and Excel file formats
-- Handles missing values in the 'TotalCharges' column
-- Converts 'TotalCharges' to numeric type
+### Data & EDA
+- **Upload** CSV/Excel datasets or use built-in Telco data
+- **Interactive plots** using Plotly: histograms, boxplots, scatter matrices, correlation heatmaps
+- **Missing value analysis** and class distribution charts
+- **Automated data cleaning** and preprocessing pipelines
 
-### Interactive Dashboard
-- Navigation sidebar for easy switching between EDA and Analytics dashboards
-- File uploader for custom dataset analysis
+### Machine Learning
+- **5 algorithms** trained and compared: Random Forest, Logistic Regression, Gradient Boosting, SVM, KNN
+- **Cross-validation** with configurable folds
+- **Hyperparameter tuning** via GridSearchCV / RandomizedSearchCV
+- **Model leaderboard** with accuracy, precision, recall, F1 scores
+- **Feature importance** visualizations
+- **Confusion matrices** and regression error plots
+- **Model persistence** with joblib for fast reloading
 
-### Visualizations
-- The app likely includes various charts and graphs to visualize churn-related data (specific details not provided in the code snippet)
+### User Interface
+- **Multi-page navigation**: Home, EDA, Model Training, Prediction, About
+- **Download buttons** for cleaned datasets, predictions, and plots
+- **Responsive layout** with sidebar controls and filters
+- **Loading spinners** and status messages
 
-## Scope of Functions
-![eda 2](https://github.com/user-attachments/assets/6510f5bf-9b24-48c6-9b7b-e9637ca1cadd)
+### AI Assistant
+- **Gemini AI integration** via Google Generative AI SDK
+- Ask questions about EDA findings or model results
+- Secure API key management via `.env` files
 
-### Key Features:
-- **Dataset Loading**: Supports CSV and Excel file formats
-- **Data Preprocessing**: Handles missing values and converts data types
-- **Interactive Interface**: Built with Streamlit for seamless user interaction
-- **Multi-page Layout**: Separate dashboards for EDA and Analytics
+## Tech Stack
 
-### Limitations:
-- The app requires datasets with specific columns, including 'TotalCharges'
-- Full functionality may depend on the structure of the uploaded dataset
+| Category | Technologies |
+|----------|--------------|
+| **Language** | Python 3.11+ |
+| **Web Framework** | Streamlit 1.58 |
+| **ML** | scikit-learn, pandas, numpy |
+| **Visualization** | Plotly, Seaborn, Matplotlib |
+| **AI** | Google Generative AI (Gemini) |
+| **DevOps** | Docker, Docker Compose |
 
-## Future Enhancements
+## Project Structure
 
-- Implement additional data visualization techniques
-- Add machine learning models for churn prediction
-- Expand the analytics capabilities with more advanced statistical analyses
+```
+ML-MODELS-and-EDA-Streamlit/
+├── app.py                 # Main application entry point
+├── pages/
+│   ├── Home.py           # Welcome page with metrics
+│   ├── EDA.py            # Exploratory data analysis
+│   ├── Model_Training.py # Model comparison and tuning
+│   ├── Prediction.py     # Customer churn prediction
+│   └── About.py          # Project information
+├── utils/
+│   ├── data_loader.py    # Data loading and cleaning
+│   ├── preprocessing.py  # sklearn Pipelines
+│   └── visualizations.py # Plotly chart generators
+├── models/
+│   └── trainer.py        # ML model training logic
+├── data/
+│   └── CleanedTelco.csv  # Default dataset
+├── images/               # README assets
+├── Dockerfile            # Container definition
+├── docker-compose.yml    # Multi-service orchestration
+├── requirements.txt      # Python dependencies
+├── .env.example          # Environment template
+└── .gitignore
+```
 
-## Sources
+## Quick Start
 
-This project utilizes open-source libraries and frameworks:
-- Streamlit for web application development
-- Pandas for data manipulation
-- Plotly for interactive visualizations
+### Prerequisites
+- Python 3.11 or higher
+- pip package manager
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ndumbe0/ML-MODELS-and-EDA-Streamlit.git
+   cd ML-MODELS-and-EDA-Streamlit
+   ```
+
+2. **Create virtual environment**
+   ```bash
+   python -m venv .venv
+   ```
+
+3. **Activate virtual environment**
+   
+   **Windows:**
+   ```bash
+   .venv\Scripts\activate
+   ```
+   
+   **macOS/Linux:**
+   ```bash
+   source .venv/bin/activate
+   ```
+
+4. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Run the application**
+   ```bash
+   streamlit run app.py
+   ```
+
+6. **Open browser** to `http://localhost:8501`
+
+## Docker Deployment
+
+Run the entire application in a container:
+
+```bash
+docker-compose up --build
+```
+
+Then visit `http://localhost:8501`.
+
+### Docker Options
+
+**Build only:**
+```bash
+docker build -t telco-churn-app .
+```
+
+**Run container:**
+```bash
+docker run -p 8501:8501 -e GOOGLE_AI_API_KEY=your_key telco-churn-app
+```
+
+## ML Models
+
+The application trains and compares 5 machine learning models:
+
+| Model | Algorithm | Hyperparameter Tuning |
+|-------|-----------|----------------------|
+| **Random Forest** | `RandomForestClassifier` | GridSearchCV |
+| **Logistic Regression** | `LogisticRegression` | GridSearchCV |
+| **Gradient Boosting** | `GradientBoostingClassifier` | GridSearchCV |
+| **SVM** | `SVC` | RandomizedSearchCV |
+| **KNN** | `KNeighborsClassifier` | GridSearchCV |
+
+### Model Pipeline
+
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+# Numeric pipeline
+numeric_transformer = Pipeline([
+    ('imputer', SimpleImputer(strategy='median')),
+    ('scaler', StandardScaler())
+])
+
+# Categorical pipeline
+categorical_transformer = Pipeline([
+    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))
+])
+
+# Combined preprocessor
+preprocessor = ColumnTransformer([
+    ('num', numeric_transformer, numeric_cols),
+    ('cat', categorical_transformer, categorical_cols)
+])
+```
+
+## Screenshots
+
+### Home Page
+![Home](https://github.com/user-attachments/assets/eda1example)
+
+### EDA Dashboard
+![EDA Dashboard](https://github.com/user-attachments/assets/eda2example)
+
+### Model Training
+![Model Training](https://github.com/user-attachments/assets/eda1-1example)
+
+### Prediction Interface
+![Prediction](https://github.com/user-attachments/assets/loginexample)
+
+## Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+GOOGLE_AI_API_KEY=your_google_generative_ai_api_key
+```
+
+> **Note:** Never commit `.env` files. Use `.env.example` as a template.
 
 ## Contributing
 
-Contributions to improve the Telco Churn Analysis Dashboard are welcome. Please feel free to submit pull requests or open issues for any bugs or feature requests.
+Contributions are welcome! Please follow these steps:
 
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
+## Developer
 
+**Moses N Ndumbe**  
+**Team Lead:** Ms. Portia Bentum  
+**Organization:** Azubi Africa
 
-
-
-### 2
-
-
-# Telco Churn Prediction App
-
-## 1️⃣ **Project Title**  
-**Telco Churn Prediction App**
-
-## 2️⃣ **Introduction**  
-The Telco Churn Prediction App is a machine learning-based web application designed to predict customer churn for a telecommunications company. By analyzing customer data, the app provides insights into which customers are likely to leave and enables businesses to take proactive measures to improve retention rates. The app leverages advanced machine learning models and an intuitive user interface built with Streamlit.
-
-## 3️⃣ **Technologies Used**  
-The project incorporates the following technologies:  
-- **Programming Language:** Python  
-- **Libraries:**  
-  - Data Manipulation: `pandas`, `numpy`  
-  - Machine Learning: `scikit-learn` (Random Forest, Logistic Regression, Gradient Boosting)  
-  - Web Application Framework: `Streamlit`  
-- **Data Formats Supported:** CSV and Excel files  
-
-## 4️⃣ **Launch**  
-To run the application locally:  
-1. Clone the repository from GitHub.  
-2. Install the required dependencies using `pip install -r requirements.txt`.  
-3. Run the Streamlit app with the command:  
-   ```bash
-   streamlit run telcochurnapp.py
-   ```
-4. Upload your dataset or use the default dataset provided in the app.
-
-## 5️⃣ **Table of Contents**  
-- [Project Title](#1️⃣-project-title)  
-- [Introduction](#2️⃣-introduction)  
-- [Technologies Used](#3️⃣-technologies-used)  
-- [Launch](#4️⃣-launch)  
-- [Table of Contents](#5️⃣-table-of-contents)  
-- [Illustrations](#6️⃣-illustrations)  
-- [Scope of Functions](#7️⃣-scope-of-functions)  
-- [Sources](#8️⃣-sources)
-
-## 6️⃣ **Illustrations**  
-The application includes:  
-- A user-friendly interface for uploading datasets and configuring model parameters.  
-- Visualizations of model performance metrics such as accuracy scores for Random Forest, Logistic Regression, and Gradient Boosting models.  
-
-Example screenshots:  
-1. **Main Dashboard:** Displays options for dataset upload and preprocessing.  
-2. **Model Training Results:** Shows accuracy scores for each trained model.
-
-## 7️⃣ **Scope of Functions**  
-
-### Key Features:
-1. **Dataset Loading and Preprocessing:** 
-   - Supports CSV and Excel file formats.
-   - Handles missing values and performs one-hot encoding for categorical variables.
-2. **Machine Learning Models:** 
-   - Trains three models: Random Forest, Logistic Regression, and Gradient Boosting.
-   - Evaluates model performance using accuracy scores.
-3. **Churn Prediction:** 
-   - Allows users to input new customer data for churn prediction.
-   - Aligns user input with trained model features to ensure compatibility.
-4. **Interactive Interface:** 
-   - Built with Streamlit for seamless user interaction.
-   - Displays results in real-time after training or prediction.
-
-### Limitations:
-- The app requires clean datasets with specific columns such as `customerID`, `Churn`, and `InternetService`. Missing required columns will result in errors.
-
-## 8️⃣ **Sources**  
-The project is based on publicly available datasets and tools, including:  
-- Cleaned Telco customer data (`CleanedTelco.csv`).  
-- Libraries like `scikit-learn` for machine learning algorithms and `Streamlit` for app development.
-
-### 3
 ---
 
-## ** Authentication App**  
+Built with passion for data science and machine learning.
 
-https://appenticationapppy-ck6cqcbhvquztvps6ryzuj.streamlit.app/
-
-The `authenticationapp.py` file contains a basic authentication system implemented using Streamlit, a Python library for creating web applications. Here's an overview of the file's contents and functionality:
-
-![log in](https://github.com/user-attachments/assets/c4b13d43-07b6-4948-b8db-8c1d1946b187)
-
-
-## Imports
-
-The script imports two libraries:
-
-```python
-import streamlit as st
-import time
-```
-
-Streamlit is used for creating the web interface, while the `time` module is imported but not used in the visible part of the code.
-
-## Page Configuration
-
-The script uses Streamlit's markdown functionality to potentially set up custom styling or instructions:
-
-```python
-st.markdown("""
-
-""", unsafe_allow_html=True)
-```
-
-This empty markdown block with `unsafe_allow_html=True` suggests that HTML might be used for custom styling in the full implementation.
-
-## Login Form Function
-
-The main component of this script is the `login_form()` function:
-
-```python
-def login_form():
-    with st.container():
-        st.markdown('Welcome Back')
-```
-
-This function creates a container in the Streamlit app and displays a "Welcome Back" message using markdown.
-
-## Key Features
-
-1. **Streamlit Integration**: The script leverages Streamlit for creating a web-based user interface.
-2. **Container Usage**: It uses Streamlit's `container()` to organize the layout of the login form.
-3. **Welcome Message**: The login form displays a "Welcome Back" message to greet users.
-
-## Potential Functionality
-
-While the provided code snippet is incomplete, a typical authentication system might include:
-
-- Input fields for username and password
-- A submit button for login attempts
-- Logic for validating user credentials
-- Session management for logged-in users
-
-## Limitations
-
-The current code snippet is minimal and lacks full authentication functionality. It appears to be a foundation for a more comprehensive login system.
-
-To create a complete authentication system, additional features such as password hashing, user database integration, and secure session management would need to be implemented.
-
-https://dev.to/ndumbe0/ml-and-eda-app-deployment-5ddi
-
-Owner (ndumbemoses@gmail.com) : [Moses N Ndumbe]
-
-Team Leads (portia.bentum@azubiafrica.org) : [Ms.Portia Bentum]
+![GitHub stars](https://img.shields.io/github/stars/ndumbe0/ML-MODELS-and-EDA-Streamlit?style=social)
