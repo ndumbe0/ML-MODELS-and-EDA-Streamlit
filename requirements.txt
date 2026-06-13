@@ -1,7 +1,10 @@
 streamlit
 pandas
-matplotlib
+numpy
+scikit-learn
 plotly
 openpyxl
-streamlit-authenticator
-pyyaml
+python-dotenv
+google-generativeai
+joblib
+seaborn

@@ -1,0 +1,14 @@
+.env
+__pycache__
+*.pyc
+*.pyo
+.venv
+venv
+models/*.pkl
+models/*.joblib
+data/*.csv
+!data/CleanedTelco.csv
+!data/TestcleanedTelco.csv
+.streamlit
+.DS_Store
+Thumbs.db
