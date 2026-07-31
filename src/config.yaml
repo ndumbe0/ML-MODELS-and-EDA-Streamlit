@@ -1,13 +1,20 @@
+# Application configuration
+# Credentials are loaded from environment variables, not stored here.
+# See .env.example for required variables.
+
 credentials:
+  # Userstore: define usernames here, passwords come from env vars
   usernames:
     jsmith:
       email: jsmith@example.com
       name: John Smith
-      password: abc123 # This should be hashed
+      password_hash_env: JSMITH_PASSWORD_HASH  # Read from environment
+
 cookie:
   expiry_days: 30
-  key: some_signature_key
-  name: some_cookie_name
+  key_env: COOKIE_SIGNATURE_KEY  # Read from environment
+  name: telco_churn_app
+
 preauthorized:
   emails:
-  - melsby@example.com
+    - melsby@example.com

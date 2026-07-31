@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
@@ -24,7 +25,8 @@ def load_data(file_path=None):
     if file_path:
         data = pd.read_csv(file_path) if file_path.endswith('.csv') else pd.read_excel(file_path)
     else:
-        data = pd.read_csv("C:\\Users\\MoseS\\Desktop\\telcochurn_project\\data\\CleanedTelco.csv")
+        default_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'CleanedTelco.csv')
+        data = pd.read_csv(default_path)
     return data
 
 # Preprocess the data

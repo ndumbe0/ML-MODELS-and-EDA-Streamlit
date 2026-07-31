@@ -3,10 +3,12 @@ version: '3.8'
 services:
   streamlit-app:
     build: .
+    container_name: telco-churn-app
     ports:
-      - "8501:8501"
+      - "127.0.0.1:8501:8501"
     volumes:
       - ./data:/app/data
       - ./models:/app/models
-    environment:
-      - GOOGLE_AI_API_KEY=${GOOGLE_AI_API_KEY}
+    env_file:
+      - .env
+    restart: unless-stopped

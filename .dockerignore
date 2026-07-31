@@ -1,11 +1,14 @@
+# Git / CI
+.git/
+.gitignore
+.gitattributes
+
 # Environment files
 .env
 .env.*
 !.env.example
 
 # Python
-.venv/
-venv/
 __pycache__/
 *.py[cod]
 *$py.class
@@ -14,8 +17,9 @@ __pycache__/
 *.egg-info/
 *.egg
 .eggs/
-build/
-dist/
+.venv/
+venv/
+env/
 
 # IDE / Editor
 .vscode/
@@ -26,6 +30,9 @@ dist/
 .DS_Store
 Thumbs.db
 .obsidian/
+
+# OS
+desktop.ini
 
 # Jupyter / Notebook
 .ipynb_checkpoints/
@@ -44,5 +51,12 @@ htmlcov/
 # Streamlit
 .streamlit/
 
+# Virtual environments
+venv/
+
 # Stray files
 commands.txt
+
+# Model artifacts (regenerated via train_models.py)
+models/*.joblib
+models/*.pkl

@@ -1,254 +1,164 @@
-# Telco Churn Analysis & Prediction Platform
+# 🚀 Telco Churn Analysis & Prediction Platform
 
-![Streamlit](https://img.shields.io/badge/Streamlit-1.58-FF4B4B?logo=streamlit)
-![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-1.9-FA9F3E?logo=scikitlearn)
-![Plotly](https://img.shields.io/badge/Plotly-6.8-3F4F75?logo=plotly)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B?style=for-the-badge&logo=streamlit)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.3%2B-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-24.0%2B-2496ED?style=for-the-badge&logo=docker)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-![Telco Churn Dashboard](https://github.com/user-attachments/assets/4dafda63-22b6-4d15-8c1b-dbd3b1f45697)
-
-An end-to-end machine learning platform for telecommunications customer churn analysis and prediction. Built with Streamlit, this application combines interactive exploratory data analysis (EDA), automated ML model training with hyperparameter tuning, and an AI-powered assistant for insights.
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Live Demo](#live-demo)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Quick Start](#quick-start)
-- [Docker Deployment](#docker-deployment)
-- [ML Models](#ml-models)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Overview
-
-Customer churn is one of the most critical metrics for subscription-based businesses. This platform enables data scientists and business analysts to:
-
-1. **Explore** customer data with interactive visualizations
-2. **Train and compare** multiple ML models with cross-validation
-3. **Predict** individual customer churn probability
-4. **Get AI-powered insights** via integrated Gemini AI assistant
-
-## Live Demo
-
-![Dashboard Preview](https://github.com/user-attachments/assets/6510f5bf-9b24-48c6-9b7b-e9637ca1cadd)
-
-**Live App:** [Telco Churn Platform](https://ndumbe0-embedding-ml-models-in-guis---streamli-srcedaapp-bpzjl8.streamlit.app/)
-
-## Features
-
-### Data & EDA
-- **Upload** CSV/Excel datasets or use built-in Telco data
-- **Interactive plots** using Plotly: histograms, boxplots, scatter matrices, correlation heatmaps
-- **Missing value analysis** and class distribution charts
-- **Automated data cleaning** and preprocessing pipelines
-
-### Machine Learning
-- **5 algorithms** trained and compared: Random Forest, Logistic Regression, Gradient Boosting, SVM, KNN
-- **Cross-validation** with configurable folds
-- **Hyperparameter tuning** via GridSearchCV / RandomizedSearchCV
-- **Model leaderboard** with accuracy, precision, recall, F1 scores
-- **Feature importance** visualizations
-- **Confusion matrices** and regression error plots
-- **Model persistence** with joblib for fast reloading
-
-### User Interface
-- **Multi-page navigation**: Home, EDA, Model Training, Prediction, About
-- **Download buttons** for cleaned datasets, predictions, and plots
-- **Responsive layout** with sidebar controls and filters
-- **Loading spinners** and status messages
-
-### AI Assistant
-- **Gemini AI integration** via Google Generative AI SDK
-- Ask questions about EDA findings or model results
-- Secure API key management via `.env` files
-
-## Tech Stack
-
-| Category | Technologies |
-|----------|--------------|
-| **Language** | Python 3.11+ |
-| **Web Framework** | Streamlit 1.58 |
-| **ML** | scikit-learn, pandas, numpy |
-| **Visualization** | Plotly, Seaborn, Matplotlib |
-| **AI** | Google Generative AI (Gemini) |
-| **DevOps** | Docker, Docker Compose |
-
-## Project Structure
-
-```
-ML-MODELS-and-EDA-Streamlit/
-├── app.py                 # Main application entry point
-├── pages/
-│   ├── Home.py           # Welcome page with metrics
-│   ├── EDA.py            # Exploratory data analysis
-│   ├── Model_Training.py # Model comparison and tuning
-│   ├── Prediction.py     # Customer churn prediction
-│   └── About.py          # Project information
-├── utils/
-│   ├── data_loader.py    # Data loading and cleaning
-│   ├── preprocessing.py  # sklearn Pipelines
-│   └── visualizations.py # Plotly chart generators
-├── models/
-│   └── trainer.py        # ML model training logic
-├── data/
-│   └── CleanedTelco.csv  # Default dataset
-├── images/               # README assets
-├── Dockerfile            # Container definition
-├── docker-compose.yml    # Multi-service orchestration
-├── requirements.txt      # Python dependencies
-├── .env.example          # Environment template
-└── .gitignore
-```
-
-## Quick Start
-
-### Prerequisites
-- Python 3.11 or higher
-- pip package manager
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ndumbe0/ML-MODELS-and-EDA-Streamlit.git
-   cd ML-MODELS-and-EDA-Streamlit
-   ```
-
-2. **Create virtual environment**
-   ```bash
-   python -m venv .venv
-   ```
-
-3. **Activate virtual environment**
-   
-   **Windows:**
-   ```bash
-   .venv\Scripts\activate
-   ```
-   
-   **macOS/Linux:**
-   ```bash
-   source .venv/bin/activate
-   ```
-
-4. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Run the application**
-   ```bash
-   streamlit run app.py
-   ```
-
-6. **Open browser** to `http://localhost:8501`
-
-## Docker Deployment
-
-Run the entire application in a container:
-
-```bash
-docker-compose up --build
-```
-
-Then visit `http://localhost:8501`.
-
-### Docker Options
-
-**Build only:**
-```bash
-docker build -t telco-churn-app .
-```
-
-**Run container:**
-```bash
-docker run -p 8501:8501 -e GOOGLE_AI_API_KEY=your_key telco-churn-app
-```
-
-## ML Models
-
-The application trains and compares 5 machine learning models:
-
-| Model | Algorithm | Hyperparameter Tuning |
-|-------|-----------|----------------------|
-| **Random Forest** | `RandomForestClassifier` | GridSearchCV |
-| **Logistic Regression** | `LogisticRegression` | GridSearchCV |
-| **Gradient Boosting** | `GradientBoostingClassifier` | GridSearchCV |
-| **SVM** | `SVC` | RandomizedSearchCV |
-| **KNN** | `KNeighborsClassifier` | GridSearchCV |
-
-### Model Pipeline
-
-```python
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-
-# Numeric pipeline
-numeric_transformer = Pipeline([
-    ('imputer', SimpleImputer(strategy='median')),
-    ('scaler', StandardScaler())
-])
-
-# Categorical pipeline
-categorical_transformer = Pipeline([
-    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
-    ('onehot', OneHotEncoder(handle_unknown='ignore'))
-])
-
-# Combined preprocessor
-preprocessor = ColumnTransformer([
-    ('num', numeric_transformer, numeric_cols),
-    ('cat', categorical_transformer, categorical_cols)
-])
-```
-
-## Screenshots
-
-### Home Page
-![Home](https://github.com/user-attachments/assets/eda1example)
-
-### EDA Dashboard
-![EDA Dashboard](https://github.com/user-attachments/assets/eda2example)
-
-### Model Training
-![Model Training](https://github.com/user-attachments/assets/eda1-1example)
-
-### Prediction Interface
-![Prediction](https://github.com/user-attachments/assets/loginexample)
-
-## Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-GOOGLE_AI_API_KEY=your_google_generative_ai_api_key
-```
-
-> **Note:** Never commit `.env` files. Use `.env.example` as a template.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## Developer
-
-**Moses N Ndumbe**  
-**Team Lead:** Ms. Portia Bentum  
-**Organization:** Azubi Africa
+> **Short Summary:** An end-to-end machine learning platform for telecommunications customer churn analysis and prediction, combining interactive EDA visualizations, automated model training with hyperparameter tuning, and an AI-powered Gemini assistant for insights.
 
 ---
 
-Built with passion for data science and machine learning.
+## 📌 Executive Summary & Business Impact
 
-![GitHub stars](https://img.shields.io/github/stars/ndumbe0/ML-MODELS-and-EDA-Streamlit?style=social)
+* **The Problem:** Telecommunications companies lose billions annually to customer churn. Manual analysis is slow, error-prone, and lacks real-time predictive capability.
+* **The Solution:** A Streamlit-based ML platform that lets analysts upload data, explore patterns interactively, train and compare 5 ML models with GridSearchCV, and predict individual churn probability — all with an integrated Gemini AI assistant.
+* **Key Metrics & Results:** Model comparison leaderboards with accuracy, precision, recall, and F1 scores across Random Forest, Logistic Regression, Gradient Boosting, SVM, and KNN.
+
+---
+
+## 🏗️ System Architecture & Workflow
+
+```mermaid
+flowchart TD
+    A[Raw CSV / Default Dataset] --> B[Data Loading & Cleaning<br/>utils/data_loader.py]
+    B --> C[Preprocessing Pipeline<br/>StandardScaler + OneHotEncoder]
+    C --> D[EDA Visualizations<br/>Plotly Charts]
+    C --> E[Model Training<br/>GridSearchCV + Cross-Validation]
+    E --> F[5 Trained Models:<br/>RF, LR, GB, SVM, KNN]
+    F --> G[Predictions & Leaderboard]
+    F --> H[Confusion Matrix<br/>Feature Importance]
+    A --> I[Gemini AI Assistant]
+    G --> J[Docker Containerized<br/>Streamlit App]
+```
+
+---
+
+## 🛠️ Tech Stack & Key Tools
+
+* **Core Language:** Python 3.10+
+* **Data Processing:** Pandas, NumPy
+* **Visualization:** Plotly, Seaborn, Matplotlib
+* **Machine Learning:** Scikit-learn (GridSearchCV, RandomizedSearchCV)
+* **API / UI Framework:** Streamlit
+* **AI / LLM:** Google Generative AI (Gemini 2.0 Flash)
+* **Deployment & Containerization:** Docker, Docker Compose
+* **Environment Management:** python-dotenv
+
+---
+
+## 📂 Repository Directory Structure
+
+```text
+ML-MODELS-and-EDA-Streamlit/
+├── app.py                  # Main Streamlit application entry point
+├── pages/                  # Multi-page Streamlit modules
+│   ├── Home.py
+│   ├── EDA.py
+│   ├── Model_Training.py
+│   ├── Prediction.py
+│   └── About.py
+├── utils/                  # Utilities
+│   ├── data_loader.py      # Data loading & cleaning
+│   ├── preprocessing.py    # sklearn Pipelines
+│   └── visualizations.py   # Plotly chart generators
+├── models/                 # ML model training logic
+│   ├── trainer.py
+│   └── __init__.py
+├── src/                    # Alternative standalone apps
+│   ├── config.yaml
+│   ├── edaapp.py
+│   ├── telcochurnapp.py
+│   ├── authenticationapp.py
+│   └── __init__.py
+├── data/                   # Sample datasets
+│   ├── CleanedTelco.csv
+│   ├── TestcleanedTelco.csv
+│   └── telcocleaned.csv
+├── images/                 # README assets
+├── .env.example            # Environment template
+├── .gitignore              # Git ignore rules
+├── .dockerignore           # Docker build ignore rules
+├── Dockerfile              # Container definition
+├── docker-compose.yml      # Multi-service orchestration
+├── requirements.txt        # Python dependencies (pinned)
+├── LICENSE                 # MIT License
+└── README.md               # This file
+```
+
+---
+
+## ⚙️ Quickstart & Local Setup Guide
+
+### Local Python Environment Setup
+
+```bash
+git clone https://github.com/ndumbe0/ML-MODELS-and-EDA-Streamlit.git
+cd ML-MODELS-and-EDA-Streamlit
+python -m venv .venv
+# Windows:
+.venv\Scripts\activate
+# Linux/macOS:
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+### Docker Setup
+
+```bash
+# Build and run
+docker-compose up --build
+# Access at http://localhost:8501
+
+# Or manually:
+docker build -t telco-churn-app .
+docker run -d -p 8501:8501 --env-file .env telco-churn-app
+```
+
+### AI Assistant Setup
+
+Create a `.env` file in the project root:
+
+```bash
+cp .env.example .env
+# Edit .env and add your Google AI API key
+```
+
+Get a [Google AI Studio API key](https://aistudio.google.com/apikey).
+
+---
+
+## 🛡️ Security & Quality Standards
+
+* **Secrets Management:** API keys loaded from `.env` via `python-dotenv`, never hardcoded.
+* **Prompt Injection Defense:** User inputs sanitized before sending to Gemini LLM.
+* **Authentication:** Credentials loaded from environment variables (no hardcoded passwords).
+* **Non-Root Execution:** Containerized as non-root `appuser`.
+* **Dependency Pinning:** All packages have upper-bound version constraints.
+* **Input Validation:** `try/except` blocks with logging on all critical code paths.
+
+---
+
+## 🧪 Testing
+
+```bash
+pip install pytest
+pytest tests/ -v
+```
+
+---
+
+## 👤 Author & Contact
+
+* **GitHub:** [@ndumbe0](https://github.com/ndumbe0)
+* **Email:** ndumbemoses@gmail.com
+* **Team Lead:** Ms. Portia Bentum
+* **Organization:** Azubi Africa
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

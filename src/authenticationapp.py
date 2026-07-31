@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import os
 
 st.markdown("""
 <style>
@@ -139,8 +140,9 @@ def login_form():
         if login_button:
             with st.spinner('Authenticating...'):
                 time.sleep(1)
-                if username == "admin" and password == "admin123":
-                    st.success("Login successful!")
+                expected_user = os.getenv('APP_USERNAME', '')
+                expected_pass = os.getenv('APP_PASSWORD', '')
+                if expected_user and expected_pass and username == expected_user and password == expected_pass:
                     st.session_state.logged_in = True
                 else:
                     st.error("Invalid credentials")
@@ -173,7 +175,7 @@ def main():
         st.write("Welcome to the application!")
         if st.button("Logout"):
             st.session_state.logged_in = False
-            st.experimental_rerun()
+        st.rerun()
 
 if __name__ == "__main__":
     main()
