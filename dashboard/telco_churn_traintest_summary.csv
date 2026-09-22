@@ -1,0 +1,27 @@
+dimension,level,customers,churned,avg_monthly_charges,avg_tenure,churn_rate
+contract,Month-to-month,3875,1756,66.4,18.0,0.4532
+contract,One year,1473,336,65.05,42.0,0.2281
+contract,Two year,1694,266,60.74,56.7,0.157
+payment_method,Bank transfer (automatic),1544,407,67.19,43.7,0.2636
+payment_method,Credit card (automatic),1522,390,66.51,43.3,0.2562
+payment_method,Electronic check,2364,1108,76.24,25.2,0.4687
+payment_method,Mailed check,1612,453,43.92,21.8,0.281
+tenure_group,0-12,2186,1069,56.1,4.7,0.489
+tenure_group,13-24,1024,364,61.36,18.4,0.3555
+tenure_group,25-36,832,244,65.58,30.3,0.2933
+tenure_group,37-48,762,216,66.32,42.6,0.2835
+tenure_group,49-60,832,192,70.55,54.5,0.2308
+tenure_group,61-72,1406,273,75.93,68.1,0.1942
+internet_service,DSL,2421,665,58.1,32.8,0.2747
+internet_service,Fiber optic,3095,1390,91.49,32.9,0.4491
+internet_service,No,1526,303,21.08,30.5,0.1986
+gender,Female,3488,1150,65.2,32.2,0.3297
+gender,Male,3554,1208,64.31,32.5,0.3399
+senior_citizen,0,5900,1846,61.84,32.2,0.3129
+senior_citizen,1,1142,512,79.82,33.3,0.4483
+partner,False,1538,494,62.66,23.3,0.3212
+partner,No,2103,910,61.43,23.4,0.4327
+partner,True,1461,286,68.15,42.2,0.1958
+partner,Yes,1940,668,67.47,41.9,0.3443
+dataset,test,2000,1022,63.93,31.9,0.511
+dataset,train,5042,1336,65.08,32.6,0.265
