@@ -70,20 +70,20 @@ if page == "EDA Dashboard":
     st.markdown("<h3 class='fade-in'>Monthly Charges Distribution</h3>", unsafe_allow_html=True)
     fig = px.histogram(df, x="MonthlyCharges", nbins=30, marginal="box")
     fig.update_layout(title_text="Monthly Charges Distribution", title_x=0.5)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # Monthly Charges by Churn
     st.markdown("<h3 class='fade-in'>Monthly Charges by Churn</h3>", unsafe_allow_html=True)
     fig = px.box(df, x="Churn", y="MonthlyCharges", color="Churn")
     fig.update_layout(title_text="Monthly Charges by Churn", title_x=0.5)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # Total Charges vs. Monthly Charges
     st.markdown("<h3 class='fade-in'>Total Charges vs. Monthly Charges</h3>", unsafe_allow_html=True)
     fig = px.scatter(df, x="MonthlyCharges", y="TotalCharges", color="Churn", 
                      hover_data=["Contract", "tenure"])
     fig.update_layout(title_text="Total Charges vs. Monthly Charges", title_x=0.5)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # Correlation heatmap
     st.markdown("<h3 class='fade-in'>Correlation Heatmap</h3>", unsafe_allow_html=True)
@@ -91,13 +91,13 @@ if page == "EDA Dashboard":
     corr_matrix = df[numeric_cols].corr()
     fig = px.imshow(corr_matrix, text_auto=True, aspect="auto")
     fig.update_layout(title_text="Correlation Heatmap", title_x=0.5)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # Churn distribution
     st.markdown("<h3 class='fade-in'>Churn Distribution</h3>", unsafe_allow_html=True)
     fig = px.pie(df, names='Churn', title='Churn Distribution')
     fig.update_traces(textposition='inside', textinfo='percent+label')
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 elif page == "Analytics Dashboard":
     st.markdown("<h1 class='fade-in'>Analytics Dashboard</h1>", unsafe_allow_html=True)
@@ -126,7 +126,7 @@ elif page == "Analytics Dashboard":
     fig = px.bar(contract_churn, x=contract_churn.index, y=["Yes", "No"], 
                  title="Churn Rate by Contract Type", barmode="group")
     fig.update_layout(title_x=0.5)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # Top 5 Reasons for Churn
     st.markdown("<h3 class='fade-in'>Top 5 Reasons for Churn</h3>", unsafe_allow_html=True)
@@ -135,7 +135,7 @@ elif page == "Analytics Dashboard":
                  title="Top 5 Reasons for Churn")
     fig.update_traces(textposition='inside', textinfo='percent+label')
     fig.update_layout(title_x=0.5)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # Churn Rate Over Time
     st.markdown("<h3 class='fade-in'>Churn Rate Over Time</h3>", unsafe_allow_html=True)
@@ -143,7 +143,7 @@ elif page == "Analytics Dashboard":
     churn_over_time.columns = ['tenure', 'ChurnRate']
     fig = px.line(churn_over_time, x='tenure', y='ChurnRate', title='Churn Rate Over Time')
     fig.update_layout(title_x=0.5)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # Interactive Churn Predictor
     st.markdown("<h3 class='fade-in'>Interactive Churn Predictor</h3>", unsafe_allow_html=True)
@@ -168,7 +168,7 @@ elif page == "Analytics Dashboard":
                      {'range': [0.75, 1], 'color': "red"}],
                  'threshold': {'line': {'color': "red", 'width': 4}, 'thickness': 0.75, 'value': 0.75}}))
     
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 # Footer
 st.markdown("---")

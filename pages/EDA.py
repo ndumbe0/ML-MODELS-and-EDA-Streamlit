@@ -41,7 +41,7 @@ def show():
         cat = st.selectbox("Select categorical column", cat_cols)
         fig = px.bar(df[cat].value_counts().reset_index(), x=cat, y='count', title=f"{cat} Distribution")
         fig.update_layout(title_x=0.5)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     st.subheader("Correlation Heatmap")
     if numeric_cols:

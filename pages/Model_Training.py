@@ -38,11 +38,11 @@ def show():
             'Best Params': str(r['best_params'])
         } for r in results.values()])
         st.subheader("Model Leaderboard")
-        st.dataframe(leaderboard.sort_values('Best CV Score', ascending=False), use_container_width=True)
+        st.dataframe(leaderboard.sort_values('Best CV Score', ascending=False), width="stretch")
 
         fig = px.bar(leaderboard, x='Model', y='Best CV Score', color='Model', title="Model Comparison")
         fig.update_layout(title_x=0.5)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
         selected_model = st.selectbox("Select model for details", list(results.keys()))
         res = results[selected_model]
